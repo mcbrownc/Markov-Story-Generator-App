@@ -1,0 +1,2 @@
+import  {Markov}  from 'kurwov';
+Markov.generate({ data, length: 100 });
