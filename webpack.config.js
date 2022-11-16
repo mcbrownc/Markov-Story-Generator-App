@@ -1,4 +1,8 @@
 const path = require("path");
+const NodemonPlugin = require('nodemon-webpack-plugin');
+const { webpack } = require("webpack");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const webpack = require('webpack');
 
 module.exports = {
   mode: "development", 
@@ -13,12 +17,25 @@ module.exports = {
        */
       filename: "main.js"
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+        template: './public/index.html'
+    }),
+    new NodemonPlugin(),
+    // new webpack.HotModuleReplacementPlugin({
+    //     multiStep: true
+    //   }),
+  ],
   target: "web",
     devServer: {
+        historyApiFallback: true,
         /** "port" 
          * port of dev server
         */
-        port: "9500",
+        port: "8080",
+        proxy: {
+            '/': 'http://localhost:3000/',
+        },
         /** "static" 
          * This property tells Webpack what static file it should serve
         */
@@ -57,7 +74,12 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,    //kind of file extension this rule should look for and apply in test
                 exclude: /node_modules/, //folder to be excluded
-                use:  'babel-loader' //loader which we are going to use
+                use:  {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react']
+                    }
+                } 
             }
         ]
     }
