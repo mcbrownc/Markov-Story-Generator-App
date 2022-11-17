@@ -11,4 +11,12 @@ storyController.createStory = async (req, res, next) => {
   return next();
 }
 
+storyController.deleteStory = async (req, res, next) => {
+  console.log('made it to deleteStory')
+  const { name } = req.params;
+  const deletedTitle = await db.findOneAndDelete({title: name});
+  res.locals.deletedTitle = deletedTitle;
+  return next();
+}
+
 module.exports = storyController;

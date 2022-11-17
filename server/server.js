@@ -34,7 +34,11 @@ app.post('/story',
     res.send({title: req.body.title, description: req.body.description});
   })
 
-
+app.delete('/:name', 
+  storyController.deleteStory,
+  (req, res) => {
+    res.status(200).send(res.locals.deletedTitle)
+})
 
 
 

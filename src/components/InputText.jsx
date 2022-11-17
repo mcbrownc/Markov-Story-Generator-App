@@ -15,6 +15,15 @@ const InputText = () => {
     .then(data => data.json())
     .then(data => setStory(data.description))
   }
+  
+  async function deleteStory(name) {
+    await fetch(`http://localhost:8080/${name}`, {
+      method: 'DELETE',
+      body: JSON.stringify(name)
+    })
+    .then(data => data.json())
+    .then(data => console.log(data))
+  }
 
   async function saveStory(data) {
     const response = await fetch('http://localhost:8080/story', {
@@ -48,11 +57,15 @@ const InputText = () => {
           .then(data => {
                   console.log(data)
           })
-          }}>Save
+          }}>Keep
         </button>
         <button onClick={() => {
                 getStory(title);
               }}>Recall
+        </button>
+        <button onClick={() => {
+                deleteStory(title);
+              }}>Forget
         </button>
       </div>
       <Output story={story}/>
