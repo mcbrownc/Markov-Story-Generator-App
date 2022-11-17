@@ -20,7 +20,9 @@ const Bookshelf = () => {
     <div className="bookList">
       <h2>Titles</h2>
       <hr></hr>
-      {books.map(book => <h1>{book.title}</h1>)}
+      <div className='books'>
+        {books.map(book => <li>{book.title}</li>)}
+      </div>
     </div>
   )
 }

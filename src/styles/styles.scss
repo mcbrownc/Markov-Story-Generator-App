@@ -1,34 +1,212 @@
+$base-color: #FCFCFD;
+$secondary-color: darken($base-color, 10%);
+
+
 html {
-  margin: 0 0;
-  padding: 0 0
-}
-main {
   height: 100%;
+  background-color: black;
 }
-
-#root {
-  background-color: red($color: #000000);
-  height: 50%;
-}
-
 
 body {
   height: 100%;
   background-color: green;
+  padding: 0 0;
+  margin: 0 0;
+}
+
+#root {
+  height: 100%;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .mainContainer {
-
+  height: 100%;
+  width: 100%;
   background-color: grey;
+  background-image: url('https://img.freepik.com/free-vector/pixel-art-mystical-background_52683-87349.jpg?w=2000');
+  background-size: cover;
+
   display: flex;
   flex-direction: column;
   align-items: center; 
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.header  h1 {
+  margin-top: 20px;
+  padding-top: 10px;
+  font-family: 'Poor Story', cursive;
+  font-size: 100px;
+  margin-bottom: -20px;
+  color: white;
+}
+
+.input {
+  width: 75%;
+  // background-color: pink;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.input button {
+  margin: 10px;;
+}
+
+.generate {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.recall {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.test {
+  width: 100%;
+}
+
+button {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+button:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+button:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+input {
+  height: 45px
+}
+
+textarea, input {
+  margin-top: 2px;
+  margin-left: 2px;
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  resize: none;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.output {
+  // background-color: teal;
+  height: 150px;
+}
+
+.bookList {
+  font-family: "JetBrains Mono",monospace;
+
+  margin-top: 0;
+  color: black;
+  width: 60%;
+  padding: 0px;
+  // background-color: yellow;
+  max-height: inherit;
+  // width: inherit;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 
 
-p {
+.books {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 
-  text-align: center;
+p {
+  height: 100%;
+  width: 100%;
+  margin-top: 2px;
+  margin-left: 2px;
+  align-items: center;
+  appearance: none;
+  background-color: $secondary-color;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  resize: none;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
 }
