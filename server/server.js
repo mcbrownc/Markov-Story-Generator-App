@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const storyController = require('./controllers/storyController.js'); 
+const db = require('./models/model.js');
 
 const app = express();
 const PORT = 3000;
@@ -16,16 +17,20 @@ app.get('/', (req, res) => {
   res.send('hello');
 })
 
-app.get('/test', (req, res) => {
-  console.log('made it!');
-  res.locals.affirmation = 'You did it, you crazy son of a bitch you did it';
-  res.status(200).json(res.locals.affirmation);
+app.get('/db', (req, res) => {
+  db.find().exec()
+  .then(data => res.json(data))
+  
+})
+
+app.get('/:name', (req, res) => {
+  db.findOne({title: req.params.name}).exec()
+  .then(book => res.json(book))
 })
 
 app.post('/story', 
   storyController.createStory,
   (req, res) => {
-    console.log(req.body.title + ' ' + req.body.description)
     res.send({title: req.body.title, description: req.body.description});
   })
 

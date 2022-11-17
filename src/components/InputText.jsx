@@ -8,6 +8,13 @@ const InputText = () => {
 
   const [message, setMessage] = useState('');
   const [story, setStory] = useState('');
+  const [title, setTitle] = useState('');
+
+  async function getStory(name) {
+    await fetch(`http://localhost:8080/${name}`)
+    .then(data => data.json())
+    .then(data => setStory(data.description))
+  }
 
   return (
     <div id="textInput">
@@ -15,6 +22,11 @@ const InputText = () => {
       <button onClick={() => {
               setStory(markovMe(message));
             }}>Generate
+      </button>
+      <input type="text" id="title" onChange={(e) => setTitle(e.target.value)} />
+      <button onClick={() => {
+              getStory(title);
+            }}>Recall
       </button>
       <Output story={story}/>
     </div>
