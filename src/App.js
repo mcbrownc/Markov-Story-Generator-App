@@ -1,6 +1,11 @@
 import React from "react";
 import { markovMe } from '../markovGenerator.js'
 import {useState} from 'react';
+import './styles/styles.scss';
+import Header from './components/Header.jsx'
+import InputText from "./components/InputText.jsx";
+import Bookshelf from "./components/Bookshelf.jsx";
+
 
 
 const App = () =>{
@@ -26,10 +31,14 @@ const App = () =>{
 
 
     return (
-        <>
-          <div class="header">
-            <h1>Phantasmagoria/Athenaeum of Qud</h1>
-          </div>
+        <div className="mainContainer">
+          <Header />
+          <InputText />
+          <Bookshelf />
+
+
+
+          {/* <Header />
           <div id="textInput">
             <textarea defaultValue={'A half-remembered dream'} id="w3review" name="w3review" rows="4" cols="50" onChange={(e) => setMessage(e.target.value)} />
 
@@ -43,10 +52,10 @@ const App = () =>{
               })
             }}>Save</button>
         </div>
-        <div>
-            <p id="markovResult">{story}</p>
-        </div>
-      </>
+        <div id="markovResult">
+            <p>{story}</p>
+        </div> */}
+      </div>
     )
 }
 

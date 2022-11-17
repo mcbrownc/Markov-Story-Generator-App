@@ -80,7 +80,12 @@ module.exports = {
                         presets: ['@babel/preset-env', '@babel/preset-react']
                     }
                 } 
-            }
+            },
+            {
+                test: /.(css|scss)$/,
+                exclude: [/node_modules/, /client\/scss\/modules/],
+                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+            },
         ]
     }
 }
