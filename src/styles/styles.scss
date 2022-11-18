@@ -123,6 +123,7 @@ input {
 }
 
 textarea, input {
+  overflow-wrap: break-word;
   margin-top: 2px;
   margin-left: 2px;
   align-items: center;
@@ -149,21 +150,22 @@ textarea, input {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  white-space: nowrap;
+  // white-space: nowrap;
   will-change: box-shadow,transform;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .output {
   // background-color: teal;
   height: 150px;
+  // overflow-y: scroll;
 }
 
 .bookList {
   font-family: "JetBrains Mono",monospace;
 
   margin-top: 0;
-  color: black;
+  color: rgb(209, 248, 253);
   width: 60%;
   padding: 0px;
   // background-color: yellow;

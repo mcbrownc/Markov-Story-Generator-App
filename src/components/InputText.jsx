@@ -25,6 +25,15 @@ const InputText = () => {
     .then(data => console.log(data))
   }
 
+  async function updateStory(book) {
+    await fetch(`http://localhost:8080/${book.title}`, {
+      method: 'PATCH',
+      body: JSON.stringify(data)
+    })
+    .then(data => data.json())
+    .then(data => console.log(data))
+  }
+
   async function saveStory(data) {
     const response = await fetch('http://localhost:8080/story', {
       method: 'POST',
@@ -66,6 +75,10 @@ const InputText = () => {
         <button onClick={() => {
                 deleteStory(title);
               }}>Forget
+        </button>
+        <button onClick={() => {
+                updateStory({title: title, description: story});
+              }}>Update
         </button>
       </div>
       <Output story={story}/>

@@ -6,7 +6,7 @@
 
 export function markovMe(inputText) {
   const markovChain = {}
-  const testPhrase = ' At this horror I sank nearly to the lichened earth, transfixed with a dread not of this nor any world, but only of the mad spaces between the stars.  Out of the unimaginable blackness beyond the gangrenous glare of that cold flame, out of the Tartarean leagues through which that oily river rolled uncanny, unheard, and unsuspected, there flopped rhythmically a horde of tame, trained, hybrid winged things that no sound eye could ever wholly grasp, or sound brain ever wholly remember. They were not altogether crows, nor moles, nor buzzards, nor ants, nor vampire bats, nor decomposed human beings; but something I cannot and must not recall. '
+  const testPhrase = ' At this horror I sank nearly to the lichened earth, transfixed with a dread not of this nor any world, but only of the mad spaces between the stars.  Out of the unimaginable blackness beyond the gangrenous glare of that cold flame, out of the Tartarean leagues through which that oily river rolled uncanny, unheard, and unsuspected, there flopped rhythmically a horde of hybrid winged things that no sound eye could ever wholly grasp, or sound brain ever wholly remember. '
 
   // const inputText = document.getElementById('we3review').value
   const combinedText = inputText += testPhrase;

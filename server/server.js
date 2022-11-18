@@ -40,6 +40,13 @@ app.delete('/:name',
     res.status(200).send(res.locals.deletedTitle)
 })
 
+app.patch('/:name', 
+  // storyController.updateStory,
+  (req, res) => {
+    console.log(req)
+    res.status(200).send(res.locals.deletedTitle)
+})
+
 
 
 app.listen(PORT, () => {
